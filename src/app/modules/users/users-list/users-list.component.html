@@ -1,0 +1,42 @@
+<div class="d-flex ">
+    <div style="height: 450px; width: 150px;" class="sidebar bg-info text-light p-4 
+    d-flex flex-column">
+
+        <a routerLink="/dashboard" style="text-decoration: none;
+        color: white; font-weight: 800; margin: 15px;">Home</a>
+        <a routerLink="/users" style="text-decoration: none;
+        color: white; font-weight: 800; margin: 15px;">Users</a>
+    </div>
+    <div class="col-8 users-list ms-4">
+      
+        <div class="d-flex justify-content-between">
+            <h1>Users List</h1>
+            <button routerLink="add" class="btn btn-info my-3">Add</button>
+        </div>
+        <!-- table -->
+        <table class="table shadow ">
+            <thead>
+              <tr>
+                <th scope="col">User Id</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let users of allUsers">
+                <th scope="row">{{users.id}}</th>
+                <td>{{users.name}}</td>
+                <td>{{users.email}}</td>
+                <td>{{users.active=="1"?"Active":"InActive"}}</td>
+                <td class="d-flex justify-content-evenly">
+                    <i routerLink="edit/{{users.id}}" class="fa-solid fa-pen text-primary fs-4 ms-2"></i>
+                    <i class="fa-solid fa-trash text-danger fs-4 ms-2"></i>
+                </td>
+              </tr>
+             
+            </tbody>
+          </table>
+    </div>
+</div>
